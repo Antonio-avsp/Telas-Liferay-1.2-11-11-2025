@@ -4,7 +4,7 @@ const path = require('path');
 
 // 2. Inicializar o servidor Express
 const app = express();
-const PORT = 3000; // A porta onde nosso servidor vai rodar
+const PORT = 3000; // A porta onde o servidor vai rodar
 
 
 app.use(express.json());

@@ -96,9 +96,15 @@ body {
 
 .user-info {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
+align-items: center;
+ gap: 12px;
+ margin-bottom: 15px;
+    /* --- Linhas Adicionadas --- */
+     background-color: #ffffff; /* Fundo branco */
+ border: 1px solid #dbeafe; /* Borda azul clara */
+ padding: 10px; /* Espaçamento interno */
+ border-radius: 8px; /* Bordas arredondadas */
+ box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1); /* Sombra azul sutil */
 }
 
 .avatar-small {
@@ -123,23 +129,29 @@ body {
 }
 
 .user-details span {
-    font-size: 12px;
-    color: #777;
+ font-size: 12px;
+ color: #007bff; /* Cor azul principal */
+    font-weight: 500;
 }
 
 .logout-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #e9ecef;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #555;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+width: 100%;
+padding: 10px;
+background-color: #e6f2ff; /* Fundo azul claro */
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-size: 14px;
+color: #007bff; /* Texto azul principal */
+font-weight: 600; /* Texto mais forte */
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+}
+
+.logout-button:hover {
+background-color: #dbeafe; /* Azul claro um pouco mais escuro */
 }
 
 .logout-button:hover {
@@ -246,26 +258,62 @@ body {
     width: 100%;
 }
 
-.tabs {
-    display: flex;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 25px;
+
+.tabs,
+.impact-tabs {
+display: flex;
+margin-bottom: 25px;
+background-color: #fdfdfd; 
+border-radius: 12px;
+padding: 15px 25px 0 25px; 
+border-bottom: 1px solid #e0e6ed; 
 }
 
-.tab-button {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 15px;
-    color: #777;
-    margin-bottom: -1px; /* Para a borda ativa sobrepor a borda do container */
+/* Unifica o estilo dos botões em AMBAS as barras de abas */
+.tab-button,
+.impact-tabs .tab-button {
+background: none;
+border: none;
+padding: 12px 18px;
+cursor: pointer;
+font-size: 15px;
+font-weight: 500;
+color: #777;
+margin-bottom: -1px; 
+display: flex;
+align-items: center;
+gap: 8px; 
+flex: 1; 
+justify-content: center; 
+
+    /* Adiciona a borda transparente para o efeito hover */
+    border-bottom: 3px solid transparent; 
+    transition: color 0.2s, border-bottom-color 0.2s;
 }
 
-.tab-button.active {
-    font-weight: 600;
-    color: #007bff;
-    border-bottom: 3px solid #007bff;
+/* Adiciona estilos de ícone e hover para AMBOS */
+.tab-button i, 
+.impact-tabs .tab-button i {
+color: #888; 
+transition: color 0.2s;
+}
+
+.tab-button:hover, 
+.impact-tabs .tab-button:hover {
+ color: #555; 
+}
+
+
+.tab-button.active,
+.impact-tabs .tab-button.active {
+font-weight: 600;
+color: #007bff;
+border-bottom: 3px solid #007bff;
+}
+
+.tab-button.active i,
+.impact-tabs .tab-button.active i {
+    color: #007bff; 
 }
 
 .history-content {
@@ -422,7 +470,7 @@ body {
 
 .explore-header p {
     font-size: 15px;
-    color: #777;
+    color: #007bff;
     margin: 0;
 }
 
@@ -570,7 +618,7 @@ body {
 }
 
 
-/* ==== ESTILOS DA PÁGINA INÍCIO ==== */
+/* ==== ESTILOS DA PÁGINA INICIO ==== */
 
 .page-header {
     display: flex;
@@ -588,7 +636,7 @@ body {
 
 .page-header p {
     font-size: 15px;
-    color: #777;
+    color: #007bff;
     margin: 0;
 }
 
@@ -644,21 +692,14 @@ body {
 }
 
 .recommendation-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 0;
-    border-bottom: 1px solid #f0f3f6;
-}
-
-.recommendation-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.recommendation-item:first-child {
-    padding-top: 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 15px;
+padding: 20px; 
+border-bottom: 1px solid #f0f3f6;
+border-radius: 12px; 
+transition: all 0.2s ease-in-out; 
 }
 
 .recommendation-item .item-details h3 {
@@ -703,7 +744,13 @@ body {
     font-size: 14px;
     white-space: nowrap; /* Impede que o texto "Inscreva-se" quebre linha */
     transition: background-color 0.2s;
+    /* --- LINHAS ADICIONADAS POSTERIORMENTE--- */
+    display: inline-flex; /* Alinha o ícone e o texto */
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre o coração e o texto */
 }
+
 
 .inscricao-btn:hover {
     background-color: #0056b3;
@@ -788,6 +835,116 @@ body {
     margin: 0;
 }
 
+/* Muda a cor dos ícones de data/loca */
+.recommendation-item .item-info i {
+    color: #007bff; 
+}
+
+
+/* --- Novos Estilos DO Card "Seu Impacto"  --- */
+
+
+/* 1. O card principal com fundo azul */
+.impact-card-blue {
+    background: linear-gradient(160deg, #edf5ff, #f7fbff); /* Gradiente azul claro */
+    border: 1px solid #dbeafe;
+    color: #333;
+}
+
+/* 2. O título "Seu Impacto" com ícone */
+.impact-card-blue h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0056b3; /* Azul escuro para o título */
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.impact-card-blue h2 i {
+    font-weight: 400; /* Coração mais fino (regular) */
+}
+
+/* 3. Oculta o estilo de CÍRCULO antigo */
+.impact-card-blue .impact-circle {
+    display: none;
+}
+
+/* 4. Novo estilo para o valor principal "0 Horas..." */
+.impact-main-value {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.impact-main-value span {
+    font-size: 40px;
+    font-weight: bold;
+    color: #007bff; /* Azul principal */
+    display: block;
+}
+
+.impact-main-value p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #007bff; /* Azul principal */
+    margin: 4px 0 0 0;
+}
+
+/* 5. Oculta as BARRAS cinzas antigas */
+.impact-card-blue .impact-bar {
+    display: none;
+}
+
+/* 6. Novo estilo para as barras azuis "Atividades..." */
+.impact-sub-stat {
+    background: linear-gradient(90deg, #dbeafe, #e6f2ff); /* Gradiente de vidro azul */
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0041C8; /* Azul escuro */
+}
+
+.impact-sub-stat strong {
+    font-size: 16px;
+}
+
+/* 7. Oculta o botão "Ver meu perfil" antigo */
+.impact-card-blue .ver-perfil-link {
+    display: none;
+}
+
+/* 8. Novo estilo para o botão "Ver meu perfil" branco */
+.ver-perfil-link-styled {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    color: #007bff; /* Texto azul */
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 25px;
+    border: 1px solid #e0e6ed;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex; /* Para alinhar o ícone */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.ver-perfil-link-styled:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
 
 /* ==== ESTILOS DA PÁGINA DE LOGIN ==== */
 
@@ -948,7 +1105,7 @@ body {
 
 .form-header p {
     font-size: 15px;
-    color: #777;
+    color: #007bff;
     margin: 0;
 }
 
@@ -1144,10 +1301,12 @@ body {
 
 /* Abas de navegação */
 .impact-tabs {
-    display: flex;
-    gap: 10px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 25px;
+ display: flex;
+ margin-bottom: 25px;  
+ background-color: #fdfdfd; 
+ border-radius: 12px;
+padding: 15px 25px 0 25px; 
+ border-bottom: 1px solid #e0e6ed; 
 }
 
 .impact-tabs .tab-button {
@@ -1162,12 +1321,15 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex: 1; 
+    justify-content: center; 
 }
+
 
 .impact-tabs .tab-button.active {
     font-weight: 600;
     color: #007bff;
-    border-bottom: 3px solid #007bff;
+    border-bottom: 3px solid #0041C8;
 }
 
 /* Seção dos Gráficos */
@@ -1440,8 +1602,11 @@ body {
 }
 
 .detail-main-column {
-    flex: 2; /* Coluna da esquerda (conteúdo) será 2x maior */
-    min-width: 0; /* Correção para o flexbox não estourar */
+    flex: 2; 
+    min-width: 0; 
+    background-color: #fdfdfd; 
+    border-radius: 12px; 
+    padding: 30px;
 }
 
 .detail-sidebar-column {
@@ -1659,15 +1824,14 @@ body {
 
 /* --- Regra para mudar a cor dos icones " --- */
 .opportunity-card .card-info i {
-    color: #0041C8;
+    color: #007bff;
 }
 
 /* ============================================= */
 /* --- Estilos para Novas Abas (Impacto) --- */
 /* ============================================= */
 
-/* A classe .hidden já existe no seu CSS (linha 348) */
-/* .hidden { display: none; } */
+
 
 
 /* --- Aba Categorias --- */
@@ -1790,4 +1954,63 @@ body {
     color: #666;
     line-height: 1.5;
     margin: 0;
+}
+
+
+/* ============================================= */
+/* --- ESTILO DE CARD E SOMBREAMENTO --- */
+/* ============================================= */
+
+/*Esta regra aplica o novo visual de borda e sombra a TODAS as classes de card*/
+.stat-card,
+.opportunity-card,
+.widget-card,
+.history-content,
+.form-section,
+.chart-card,
+.detail-main-column,
+.action-card,
+.testemunhos-filter-bar,
+.impact-tabs,
+.tabs,
+.impact-tabs,
+.user-info {
+    border: 1px solid #eaf0f6; 
+
+    /* SOMBRA MAIS ESCURA*/
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); 
+
+    transition: all 0.2s ease-in-out; 
+}
+
+/* --- Efeito de hover ao passar o mouse --- */
+.stat-card:hover,
+.opportunity-card:hover,
+.widget-card:hover,         
+.history-content:hover,
+.form-section:hover,
+.chart-card:hover,
+.detail-main-column:hover,
+.action-card:hover,
+.impact-tabs:hover,
+.testemunhos-filter-bar:hover,
+.user-info:hover,
+.tabs:hover,
+.impact-tabs:hover,
+.recommendation-item:hover{
+    box-shadow: 0 6px 20px rgba(0, 120, 250, 1); 
+    transform: translateY(-2px);
+}
+
+
+/* --- desativa hover do card pai e "Recomendados para voce"*/ 
+
+ /*Esta regra diz: "Quando o mouse passar sobre um .widget-card
+que CONTÉM um .recommendation-list, cancele o efeito
+ de hover e volte para a sombra estática".
+*/
+.widget-card:has(.recommendation-list):hover {
+    /* Retorna à sombra estática (preto 25%) */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25); 
+    transform: none; /* Remove o "levantar" */
 }
